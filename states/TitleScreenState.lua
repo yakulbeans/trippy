@@ -4,15 +4,27 @@ function TitleScreenState:init()
 
 end
 
+local highlighted = 1
+
 function TitleScreenState:update(dt)
 
 	sounds['titleMusic']:setLooping(true)
 	sounds['titleMusic']:play()
 
-	if love.keyboard.wasPressed('enter') or love.keyboard.wasPressed('return') then
-		sounds['titleMusic']:stop()
-		gStateMachine:change('playState')
+	if love.keyboard.wasPressed('left') or love.keyboard.wasPressed('right') then
+		highlighted = highlighted == 1 and 2 or 1
+		sounds['beep']:play()
 	end
+---[[]
+	if highlighted == 1 and love.keyboard.wasPressed('enter') or love.keyboard.wasPressed('return') then
+			sounds['titleMusic']:stop()
+			gStateMachine:change('playState')
+	end
+	if highlighted == 2 and love.keyboard.wasPressed('enter') or love.keyboard.wasPressed('return') then
+			sounds['titleMusic']:stop()
+			gStateMachine:change('tripState')
+	end
+--]]
 end
 
 

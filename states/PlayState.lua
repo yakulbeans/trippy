@@ -8,11 +8,6 @@ end
 function PlayState:update(dt)
 	sounds['playMusic']:setLooping(true)
 	sounds['playMusic']:play()
-
-	if love.keyboard.wasPressed('t') then
-		sounds['playMusic']:stop()
-		gStateMachine:change('tripState')
-	end
 end
 
 

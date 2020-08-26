@@ -45,7 +45,8 @@ function love.load()
 	sounds = {
 		['titleMusic'] = love.audio.newSource('music/titlemusic.mp3', 'static'),
 		['playMusic'] = love.audio.newSource('music/playstatemusic.mp3', 'static'),
-		['tripMusic'] = love.audio.newSource('music/trippingmusic.mp3', 'static')
+		['tripMusic'] = love.audio.newSource('music/trippingmusic.mp3', 'static'),
+		['beep'] = love.audio.newSource('music/beep.wav', 'static')
 	}
 
 	push:setupScreen(VIRTUAL_WIDTH, VIRTUAL_HEIGHT, WINDOW_WIDTH, WINDOW_HEIGHT, {

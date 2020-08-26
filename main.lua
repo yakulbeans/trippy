@@ -6,6 +6,8 @@ require 'StateMachine'
 
 require '/states/BaseState'
 require '/states/TitleScreenState'
+require '/states/PlayState'
+require '/states/TripState'
 
 --1280 800
 WINDOW_WIDTH = 1200
@@ -41,8 +43,9 @@ function love.load()
 	love.graphics.setFont(normalFont)
 
 	sounds = {
-		--['titleMusic'] = love.audio.newSource('music/MartysLetter.mp3', 'static'),
-		--['playMusic'] = love.audio.newSource('music/Gigawatts.mp3', 'static')
+		['titleMusic'] = love.audio.newSource('music/titlemusic.mp3', 'static'),
+		['playMusic'] = love.audio.newSource('music/playstatemusic.mp3', 'static'),
+		['tripMusic'] = love.audio.newSource('music/trippingmusic.mp3', 'static')
 	}
 
 	push:setupScreen(VIRTUAL_WIDTH, VIRTUAL_HEIGHT, WINDOW_WIDTH, WINDOW_HEIGHT, {
@@ -52,10 +55,12 @@ function love.load()
 	})
 
 	gStateMachine = StateMachine {
-		['title'] = function() return TitleScreenState() end,
-		['play'] = function() return PlayState() end
+		['titleState'] = function() return TitleScreenState() end,
+		['playState'] = function() return PlayState() end,
+		['tripState'] = function() return TripState() end
 	}
-	gStateMachine:change('title')
+
+	gStateMachine:change('titleState')
 
 	love.keyboard.keysPressed = {}
 
@@ -91,9 +96,6 @@ function love.update(dt)
 
 	love.keyboard.keysPressed = {} 
 end
-
-
-
 
 
 

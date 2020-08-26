@@ -7,28 +7,22 @@ end
 function TitleScreenState:update(dt)
 	--sounds['titleMusic']:setLooping(true)
 	--sounds['titleMusic']:play()
-	--[[
-		if love.keyboard.wasPressed('enter') or love.keyboard.wasPressed('return') then
-		sounds['titleMusic']:stop()
-		gStateMachine:change('play')
-	end
-	redScroll = (redScroll + RED_SCROLL_SPEED + 1 * dt)
+	redScroll = (redScroll + RED_SCROLL_SPEED * dt)
 		% LOOPING_POINT
 
-	greenScroll = (greenScroll + GREEN_SCROLL_SPEED + 2 * dt)
+	greenScroll = (greenScroll + GREEN_SCROLL_SPEED * dt)
 		% LOOPING_POINT
 
-	blueScroll = (blueScroll + BLUE_SCROLL_SPEED + 18 * dt)
+	blueScroll = (blueScroll + BLUE_SCROLL_SPEED * dt)
 		% LOOPING_POINT
-	--]]
 end
 
 
 function TitleScreenState:render()
-	--love.graphics.draw(background, -backgroundScroll, 0)
-	--love.graphics.draw(middle, -middleScroll, 0)
-	--love.graphics.draw(front, -frontScroll, 0)
-	love.graphics.clear(200/255, 200/255, 200/255, 255/255)
+	love.graphics.clear(150/255, 150/255, 150/255, 255/255)
+	love.graphics.draw(redScreen, -redScroll, 0)
+	love.graphics.draw(greenScreen, -greenScroll, 0)
+	love.graphics.draw(blueScreen, -blueScroll, 0)
 	love.graphics.setFont(normalFont)
 	love.graphics.printf('Trippy Happy', 0, 60, VIRTUAL_WIDTH, 'center')
 	love.graphics.setFont(smallFont)

@@ -16,11 +16,18 @@ WINDOW_HEIGHT = 800
 VIRTUAL_WIDTH = 1200
 VIRTUAL_HEIGHT = 800
 
-RED_SCROLL_SPEED = 0
-GREEN_SCROLL_SPEED = 0
-BLUE_SCROLL_SPEED = 0
+RED_SCROLL_SPEED = 150
+GREEN_SCROLL_SPEED = 120
+BLUE_SCROLL_SPEED = 180
 
-LOOPING_POINT = 1800
+LOOPING_POINT = 2400
+
+redScreen = love.graphics.newImage('graphics/red.png')
+redScroll = 0
+greenScreen = love.graphics.newImage('graphics/green.png')
+greenScroll = 0
+blueScreen = love.graphics.newImage('graphics/blue.png')
+blueScroll  = 0
 
 function love.load()
 	love.graphics.setDefaultFilter('nearest', 'nearest')
@@ -30,6 +37,7 @@ function love.load()
 	normalFont = love.graphics.newFont('fonts/Village.ttf', 200)
 	smallFont = love.graphics.newFont('fonts/Village.ttf', 100)
 	tinyFont = love.graphics.newFont('fonts/Village.ttf', 80)
+	pixelFont = love.graphics.newFont('fonts/Pixel.ttf', 40)
 	love.graphics.setFont(normalFont)
 
 	sounds = {
@@ -100,7 +108,7 @@ function love.draw()
 end
 
 function displayFPS()
-	love.graphics.setFont(smallFont)
+	love.graphics.setFont(pixelFont)
 	love.graphics.setColor(0/255, 255/255, 0/255, 255/255)
 	love.graphics.print('FPS: ' .. tostring(love.timer.getFPS()), 10, 10)
 end

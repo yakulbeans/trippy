@@ -18,9 +18,11 @@ function TitleScreenState:update(dt)
 	if love.keyboard.wasPressed('enter') or love.keyboard.wasPressed('return') then
 		if highlighted == 1 then
 			sounds['titleMusic']:stop()
+			sounds['select']:play()
 			gStateMachine:change('playState')
 		else
 			sounds['titleMusic']:stop()
+			sounds['select']:play()
 			gStateMachine:change('tripState')
 		end
 	end

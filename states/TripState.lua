@@ -9,8 +9,9 @@ function TripState:update(dt)
 	sounds['tripMusic']:setLooping(true)
 	sounds['tripMusic']:play()
 
-	if love.keyboard.wasPressed('t') then
-		love.event.quit()
+	if love.keyboard.wasPressed('r') then
+		sounds['tripMusic']:stop()
+		gStateMachine:change('titleState')
 	end
 
 	redScroll = (redScroll + RED_SCROLL_SPEED * dt)

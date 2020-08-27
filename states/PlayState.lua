@@ -32,6 +32,9 @@ function PlayState:update(dt)
 	if love.keyboard.wasPressed('r') then
 		sounds['playMusic']:stop()
 		gStateMachine:change('titleState')
+		playerX = 0
+		playerY = 800 - 110
+		playerDY = 0
 	end
 
 	playerY = math.min(VIRTUAL_HEIGHT - 110, playerY + playerDY)
@@ -41,9 +44,9 @@ end
 
 function PlayState:render()
 	love.graphics.clear(150/255, 150/255, 150/255, 255/255)
-	love.graphics.printf('Hello PlayState', 0, 200, VIRTUAL_HEIGHT / 2, 'center')
-
 	love.graphics.setColor(255/255, 70/255, 70/255, 255/255)
 	love.graphics.rectangle('fill', playerX, playerY, 110, 110)
+	love.graphics.setColor(255/255, 255/255, 255/255, 255/255)
+	love.graphics.printf('Hello PlayState', 0, 200, VIRTUAL_HEIGHT / 2, 'center')
 end 
 

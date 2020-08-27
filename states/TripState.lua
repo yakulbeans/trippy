@@ -30,6 +30,9 @@ function TripState:update(dt)
 
 	if love.keyboard.wasPressed('r') then
 		sounds['tripMusic']:stop()
+		playerX = 0
+		playerY = 800 - 110
+		playerDY = 0
 		gStateMachine:change('titleState')
 	end
 

@@ -9,6 +9,7 @@ local GRAVITY = 20
 PLAYER_SPEED = 250
 playerY = 800 - 110
 playerDY = 0
+grounded = true
 
 function PlayState:update(dt)
 	sounds['playMusic']:setLooping(true)
@@ -25,8 +26,14 @@ function PlayState:update(dt)
 		playerX = math.max(0, playerX - PLAYER_SPEED * dt)
 	end
 
-	if love.keyboard.wasPressed('space') then
+	if love.keyboard.wasPressed('space') and grounded then
 		playerDY = -10
+	end
+
+	if playerY == 690 then
+		grounded = true
+	else
+		grounded = false
 	end
 
 	if love.keyboard.wasPressed('r') then

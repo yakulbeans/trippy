@@ -9,6 +9,7 @@ PLAYER_SPEED = 250
 local GRAVITY = 20
 playerY = 800 - 110
 playerDY = 0
+grounded = true
 
 function TripState:update(dt)
 	sounds['tripMusic']:setLooping(true)
@@ -24,8 +25,14 @@ function TripState:update(dt)
 		playerX = math.max(0, playerX - PLAYER_SPEED * dt)
 	end
 
-	if love.keyboard.wasPressed('space') then
+	if love.keyboard.wasPressed('space') and grounded then
 		playerDY = -20
+	end
+
+	if playerY == 690 then
+		grounded = true
+	else
+		grounded = false
 	end
 
 	if love.keyboard.wasPressed('r') then

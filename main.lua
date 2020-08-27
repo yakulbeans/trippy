@@ -18,11 +18,11 @@ WINDOW_HEIGHT = 800
 VIRTUAL_WIDTH = 1280
 VIRTUAL_HEIGHT = 800
 
-RED_SCROLL_SPEED = 150
-GREEN_SCROLL_SPEED = 120
-BLUE_SCROLL_SPEED = 180
+RED_SCROLL_SPEED = 200
+GREEN_SCROLL_SPEED = 180
+BLUE_SCROLL_SPEED = 240
 
-LOOPING_POINT = 2400
+LOOPING_POINT = 2560
 
 redScreen = love.graphics.newImage('graphics/red.png')
 redScroll = 0
@@ -53,7 +53,7 @@ function love.load()
 	push:setupScreen(VIRTUAL_WIDTH, VIRTUAL_HEIGHT, WINDOW_WIDTH, WINDOW_HEIGHT, {
 		vsync = true,
 		fullscreen = true,
-		resizable = true
+		resizable = false
 	})
 
 	gStateMachine = StateMachine {

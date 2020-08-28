@@ -36,6 +36,9 @@ function PlayState:update(dt)
 		grounded = false
 	end
 
+	cloudScroll = (cloudScroll + CLOUD_SCROLL_SPEED * dt)
+		% CLOUD_LOOPING_POINT
+
 	if love.keyboard.wasPressed('r') then
 		sounds['playMusic']:stop()
 		gStateMachine:change('titleState')
@@ -53,6 +56,10 @@ function PlayState:render()
 	love.graphics.clear(150/255, 150/255, 150/255, 255/255)
 	love.graphics.setColor(255/255, 70/255, 70/255, 255/255)
 	love.graphics.rectangle('fill', playerX, playerY, 110, 110)
+
+	love.graphics.setColor(255/255, 255/255, 255/255, 255/255)
+	love.graphics.draw(clouds, -cloudScroll, 0)
+
 	love.graphics.setColor(255/255, 255/255, 255/255, 255/255)
 	love.graphics.printf('Hello PlayState', 0, 200, VIRTUAL_HEIGHT / 2, 'center')
 end 

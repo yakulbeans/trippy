@@ -21,8 +21,10 @@ VIRTUAL_HEIGHT = 800
 RED_SCROLL_SPEED = 200
 GREEN_SCROLL_SPEED = 180
 BLUE_SCROLL_SPEED = 240
+CLOUD_SCROLL_SPEED = 100
 
 LOOPING_POINT = 2560
+CLOUD_LOOPING_POINT = 1800
 
 redScreen = love.graphics.newImage('graphics/red.png')
 redScroll = 0
@@ -30,6 +32,8 @@ greenScreen = love.graphics.newImage('graphics/green.png')
 greenScroll = 0
 blueScreen = love.graphics.newImage('graphics/blue.png')
 blueScroll  = 0
+clouds = love.graphics.newImage('graphics/clouds.png')
+cloudScroll = 0
 
 function love.load()
 	love.graphics.setDefaultFilter('nearest', 'nearest')

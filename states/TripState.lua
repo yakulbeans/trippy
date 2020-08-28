@@ -52,6 +52,9 @@ function TripState:update(dt)
 	blueScroll = (blueScroll + BLUE_SCROLL_SPEED * dt)
 		% LOOPING_POINT
 
+	cloudScroll = (cloudScroll + CLOUD_SCROLL_SPEED * dt)
+		% CLOUD_LOOPING_POINT
+
 	playerY = math.min(VIRTUAL_HEIGHT - 110, playerY + playerDY)
 end
 
@@ -62,6 +65,8 @@ function TripState:render()
 	love.graphics.setColor(255/255, 70/255, 70/255, 255/255)
 	love.graphics.rectangle('fill', playerX, playerY, 110, 110)
 
+	love.graphics.setColor(255/255, 255/255, 255/255, 255/255)
+	love.graphics.draw(clouds, -cloudScroll, 0)
 	love.graphics.draw(redScreen, -redScroll, 0)
 	love.graphics.draw(greenScreen, -greenScroll, 0)
 	love.graphics.draw(blueScreen, -blueScroll, 0)

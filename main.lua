@@ -8,6 +8,7 @@ require '/states/BaseState'
 require '/states/TitleScreenState'
 require '/states/PlayState'
 require '/states/TripState'
+require 'states/HelpState'
 
 --1280 800
 WINDOW_WIDTH = 1280
@@ -63,7 +64,8 @@ function love.load()
 	gStateMachine = StateMachine {
 		['titleState'] = function() return TitleScreenState() end,
 		['playState'] = function() return PlayState() end,
-		['tripState'] = function() return TripState() end
+		['tripState'] = function() return TripState() end,
+		['helpState'] = function() return HelpState() end
 	}
 
 	gStateMachine:change('titleState')

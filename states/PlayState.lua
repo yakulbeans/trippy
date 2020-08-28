@@ -17,6 +17,9 @@ function PlayState:update(dt)
 
 	playerDY = playerDY + GRAVITY * dt
 
+	if love.keyboard.wasPressed('h') then
+		gStateMachine:change('helpState')
+	end
 
 	if love.keyboard.isDown('right') then
 		playerX = math.min(VIRTUAL_WIDTH - 110, playerX + PLAYER_SPEED * dt)
@@ -60,7 +63,7 @@ function PlayState:render()
 	love.graphics.setColor(255/255, 255/255, 255/255, 255/255)
 	love.graphics.draw(clouds, -cloudScroll, 0)
 
-	love.graphics.setColor(255/255, 255/255, 255/255, 255/255)
-	love.graphics.printf('Hello PlayState', 0, 200, VIRTUAL_HEIGHT / 2, 'center')
+	--love.graphics.setColor(255/255, 255/255, 255/255, 255/255)
+	--love.graphics.printf('Hello PlayState', 0, 200, VIRTUAL_HEIGHT / 2, 'center')
 end 
 
